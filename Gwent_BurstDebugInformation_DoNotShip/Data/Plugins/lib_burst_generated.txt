@@ -8,6 +8,7 @@ Library: /home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/BurstOutput
 --float-precision=Standard
 --target-framework=NetFramework
 --assembly-defines=UnityEngine;
+--assembly-defines=Assembly-CSharp;
 --assembly-defines=Unity.2D.IK.Runtime;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.VisualScripting.Core;
@@ -50,7 +51,7 @@ Library: /home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/BurstOutput
 --assembly-defines=mscorlib;
 --generate-link-xml=Temp/burst.link.xml
 --temp-folder=/home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/Burst
---key-folder=/home/via/Documents/Unity/Hub/Editor/2022.3.18f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport
+--key-folder=/Data/Unity/Hub/Editor/2022.3.18f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport
 --decode-folder=/home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Library/Burst
 --output=/home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/BurstOutput/Data/Plugins/lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
@@ -95,6 +96,7 @@ Library: /home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/BurstOutput
 --float-precision=Standard
 --target-framework=NetFramework
 --assembly-defines=UnityEngine;
+--assembly-defines=Assembly-CSharp;
 --assembly-defines=Unity.2D.IK.Runtime;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.VisualScripting.Core;
@@ -137,7 +139,7 @@ Library: /home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/BurstOutput
 --assembly-defines=mscorlib;
 --generate-link-xml=Temp/burst.link.xml
 --temp-folder=/home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/Burst
---key-folder=/home/via/Documents/Unity/Hub/Editor/2022.3.18f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport
+--key-folder=/Data/Unity/Hub/Editor/2022.3.18f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport
 --decode-folder=/home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Library/Burst
 --output=/home/via/Documents/codigo/Proyectos Pro/Gwent Pro Dah/Temp/BurstOutput/Data/Plugins/lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/

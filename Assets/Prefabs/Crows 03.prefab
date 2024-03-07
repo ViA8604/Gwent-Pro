@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4995027583420747000}
   - component: {fileID: 1762593415901805897}
+  - component: {fileID: -1981474689599502791}
   m_Layer: 0
   m_Name: Crows 03
   m_TagString: Crows
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1981474689599502791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756709687401516212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b07e34a5e83cc7cb3c76be3569f17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardname: 
+  pjctype: 1
+  crdtype: 1
