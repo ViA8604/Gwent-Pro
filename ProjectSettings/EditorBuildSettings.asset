@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RedrawScene.unity
     guid: 3c84e78d8cb15fad6a817f83fe76b7cd
   - enabled: 1
+    path: Assets/Scenes/RedrawSuns.unity
+    guid: 6b2415541c573330dbf805d8381d9b34
+  - enabled: 1
     path: Assets/Scenes/GameTable.unity
     guid: 2394147d0dc9f5a5ba54463ebd8827b4
   m_configObjects: {}

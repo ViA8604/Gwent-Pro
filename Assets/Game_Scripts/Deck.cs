@@ -17,11 +17,29 @@ namespace GwentPro
         public Dictionary<GameObject, int> toDestroy = new Dictionary<GameObject, int>();
 
         bool needtoRenew = false;
+        public string DeckTag;
+        public string CardRedraw;
 
         // Start is called before the first frame update
         void Start()
         {
-            needtoRenew = BeginRound(mazo1, inHand1); //esta talla devuelve siempre true
+            if(gameObject.scene.name == "RedrawSuns")
+            {
+                DeckTag = "Suns";
+            }
+            else
+            {
+                DeckTag = "Crows";
+            }
+            if(DeckTag == "Crows")
+            {
+                CardRedraw = "CrowRedraw";
+            }
+            else
+            {
+                CardRedraw = "SunRedraw";
+            }
+            needtoRenew = BeginRound(mazo1, inHand1 , CardRedraw); //esta talla devuelve siempre true
         }
 
         // Update is called once per frame
@@ -31,20 +49,13 @@ namespace GwentPro
             {
                 needtoRenew = RenewInicialCards(inHand1, toDestroy); //esta talla devuelve siempre false
             }
-            foreach (GameObject item in toDestroy.Keys)
-            {
-                foreach (int valor in toDestroy.Values)
-                {
-                    Debug.Log(item + "," + valor);
-                }
-            }
+            
         }
 
-        static bool BeginRound(List<GameObject> mazo1, List<GameObject> inHand1)
+        static bool BeginRound(List<GameObject> mazo1, List<GameObject> inHand1, string DeckTag)
         {
-            //Empieza la ronda para el mazo actual
             Shuffle(mazo1);
-            PositionateHand(mazo1, "CrowRedraw", inHand1);
+            PositionateHand(mazo1, DeckTag, inHand1);
             Debug.Log("necesidad de renovar en true");
             return true;
         }
@@ -102,16 +113,14 @@ namespace GwentPro
 
         public static bool PeekCardInvoked(GameObject cardtocheck)
         {
-            Debug.Log("Entra a comprobar si hay carta con selected");
+            //To check if a card is selected.
             CardClass cardcomp = cardtocheck.GetComponent<CardClass>(); //OHE
             if (cardcomp.selected == true)
             {
-                Debug.Log("selected en true");
                 return true;
             }
             else
             {
-                Debug.Log("selected en false");
                 return false;
             }
         }
@@ -141,6 +150,7 @@ namespace GwentPro
 
         public static void ResizeInstance(GameObject instance)
         {
+            //Para cartas con distinto tamaño
             CardClass checktype = instance.GetComponent<CardClass>();
             if (checktype.cmbtype == CardClass.combatype.Special)
             {

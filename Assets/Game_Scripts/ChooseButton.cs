@@ -16,12 +16,20 @@ namespace GwentPro
         public Dictionary<GameObject, int> toDestroy11;
         public GameObject inicialDeckObject;
         public int[] indexcard = new int[10];
+        public string ActualScene;
 
         // Start se llama antes del primer frame
         void Start()
         {
+            ActualScene = gameObject.scene.name;
+            string DeckToFind;
+            if(ActualScene == "RedrawScene")
+            {
+                DeckToFind = "InicialDeck";
+            }
+            else DeckToFind = "InicialDeckS";
             //Asigna todos los elementos del script del Deck
-            inicialDeckObject = GameObject.Find("InicialDeck");
+            inicialDeckObject = GameObject.Find(DeckToFind);
             if (inicialDeckObject != null)
             {
                 Deck deckInstance = inicialDeckObject.GetComponent<Deck>();
@@ -94,11 +102,21 @@ namespace GwentPro
 
         public void NextScene()
         {
-            StartCoroutine(WaitAndPrint(40.0f));
-            FillIndex(indexcard,toDestroy11);
-            SceneManager.LoadScene("GameTable");
-            DontDestroyOnLoad(gameObject);
+            if (ActualScene == "RedrawScene")
+            {
+                StartCoroutine(WaitAndPrint(40.0f));
+                FillIndex(indexcard, toDestroy11);
+                SceneManager.LoadScene("RedrawSuns");
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                FillIndex(indexcard, toDestroy11);
+                SceneManager.LoadScene("GameTable");
+                DontDestroyOnLoad(gameObject);
+            }
         }
+
 
         IEnumerator WaitAndPrint(float waitime)
         {

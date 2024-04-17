@@ -94,8 +94,9 @@ MonoBehaviour:
   cardname: 
   crdtype: 0
   selected: 0
-  cmbtype: 0
+  cmbtype: 2
   isdragging: 0
+  ActualZone: {fileID: 0}
 --- !u!212 &-4679658738414576136
 SpriteRenderer:
   m_ObjectHideFlags: 0

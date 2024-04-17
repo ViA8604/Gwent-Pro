@@ -9,6 +9,9 @@ TagManager:
   - Menu
   - CrowRedraw
   - Deck1
+  - Suns
+  - SunRedraw
+  - Deck2
   layers:
   - Default
   - TransparentFX

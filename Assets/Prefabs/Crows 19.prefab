@@ -147,6 +147,7 @@ MonoBehaviour:
   selected: 0
   cmbtype: 3
   isdragging: 0
+  ActualZone: {fileID: 0}
 --- !u!61 &3160339421326096865
 BoxCollider2D:
   m_ObjectHideFlags: 0

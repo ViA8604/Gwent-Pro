@@ -91,10 +91,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardname: 
-  crdtype: 0
+  crdtype: 1
   selected: 0
-  cmbtype: 0
+  cmbtype: 1
   isdragging: 0
+  ActualScene: 
+  ActualZone: {fileID: 0}
 --- !u!212 &-4992801890378524937
 SpriteRenderer:
   m_ObjectHideFlags: 0
