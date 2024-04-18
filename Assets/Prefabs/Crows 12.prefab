@@ -91,12 +91,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardname: 
+  cardpoint: 2
   crdtype: 1
   selected: 0
   cmbtype: 0
   isdragging: 0
   ActualScene: 
   ActualZone: {fileID: 0}
+  CrTurn: 0
+  playable: 0
+  alreadyplayed: 0
 --- !u!212 &7076538635045093641
 SpriteRenderer:
   m_ObjectHideFlags: 0

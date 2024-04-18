@@ -12,6 +12,7 @@ namespace GwentPro
     public class CardClass : MonoBehaviour
     {
         public string cardname;
+        public int cardpoint;
         public cardtype crdtype;
         public bool selected;
         public combatype cmbtype;
@@ -30,6 +31,8 @@ namespace GwentPro
         Player yourP;
         EndTurnButton end;
 
+        public Sprite def;
+
 
         void Start()
         {
@@ -40,6 +43,7 @@ namespace GwentPro
             {
             GameObject EndB = GameObject.Find("EndTurnButton");
             end = EndB.GetComponent<EndTurnButton>();
+            def = end.def;
             string tagtofind;
             if(gameObject.tag == "Crows")
             {
@@ -109,6 +113,17 @@ namespace GwentPro
                     material.SetColor("_BorderColor", greencool);
                 }
             }
+            
+        }
+
+        void OnMouseEnter()
+        {
+            if(CrTurn)
+            {
+                GameObject.Find("Zoom").GetComponent<Image>().sprite = def;
+            }
+            GameObject.Find("Zoom").GetComponent<Image>().sprite=gameObject.GetComponent<Image>().sprite;
+            
         }
 
 
