@@ -2205,17 +2205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alreadyplayed: 0
-  mazo1:
-  - {fileID: 112729682771719571, guid: bcbaf44ad05bca50681ae84c17675947, type: 3}
-  - {fileID: 177030247545898923, guid: d9eafcebc88e3aedd9d3668d6dc70fbc, type: 3}
-  - {fileID: 8308183395321481678, guid: 6e7a316350e25ba74b008555685eb07c, type: 3}
-  - {fileID: 6111678455549296501, guid: 74dcb5cb0ecaee7d089a61e49f78e80b, type: 3}
-  - {fileID: 6867970671553019357, guid: af91c1fecc7809aee96f93857a71cdf2, type: 3}
-  - {fileID: 9197690575631667163, guid: 8fdd3aaf920299c70910f3d37330a671, type: 3}
-  - {fileID: 3940399918158307840, guid: d938d677f3b2a04b38691d387192a6fd, type: 3}
-  - {fileID: 7861873953274486492, guid: b4d51ce883bf5321392e72ae30f647be, type: 3}
-  - {fileID: 401782408886121064, guid: 2e70d3975b378b7c18c9877d4b38e8cc, type: 3}
-  - {fileID: 2029788949715785665, guid: 25026bdc73b7b895b8a75f3419d30971, type: 3}
+  mazo1: []
   indexcard: 
   yourhand1: []
   HandPanel: {fileID: 488265420}
@@ -2365,17 +2355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alreadyplayed: 0
-  mazo1:
-  - {fileID: 5715770388253089514, guid: d98669bb22d6771999bee5a0388ca736, type: 3}
-  - {fileID: 8482684619618104651, guid: 7b0db6d299107bf639e8e316b229f07b, type: 3}
-  - {fileID: 844453329123320930, guid: c83c17d993357911f80f06a23685b831, type: 3}
-  - {fileID: 4561520834901441829, guid: fc02bc53c6cd0b352b221e9a9eede0c0, type: 3}
-  - {fileID: 3874470323828125648, guid: fd47ab43ee33f7346b2305cd420a94b4, type: 3}
-  - {fileID: 8332286116918403822, guid: e15837e03c1537a62bb9f003eb80638b, type: 3}
-  - {fileID: 2572948108099535820, guid: e910f8bc1e8be6fc391d31853ebc6644, type: 3}
-  - {fileID: 1887621614869332530, guid: db1de157d56c68d81b57dc7692bda0ce, type: 3}
-  - {fileID: 6402954626310365702, guid: 52853ded8509065aea6d9e69f61d4255, type: 3}
-  - {fileID: 5449733741882618059, guid: 6d5d33d3a4a5f84568fb38d8ab3e50e7, type: 3}
+  mazo1: []
   indexcard: 
   yourhand1: []
   HandPanel: {fileID: 615026262}

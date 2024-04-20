@@ -30,6 +30,7 @@ namespace GwentPro
         Vector3 ZoomPositionI;
         BoardPoints Crow;
         BoardPoints Sun;
+        bool gotawinner;
 
         public TMPro.TextMeshProUGUI Winround;
         void Start()
@@ -52,6 +53,7 @@ namespace GwentPro
 
         public void Control()
         {
+            int roundc = 0;
             if (!P1.alreadyplayed && !P2.alreadyplayed)
             {
                 counter++;
@@ -61,6 +63,7 @@ namespace GwentPro
                 RoundEnd = true;
                 GameObject canvas = GameObject.Find("Canvas");
                 roundEdInstance = Instantiate(RoundEd, canvas.transform, false);
+                roundc ++;
 
             }
 
@@ -98,7 +101,6 @@ namespace GwentPro
                         Winround.text = "Cuervos pierden";
                     }
                     Winround.transform.localScale = new Vector3(-13.2f, -4.7f, -1.8f);
-
                 }
                 CrTurn = true;
             }
