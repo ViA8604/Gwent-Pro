@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardname: 
   cardpoint: 2
-  crdtype: 1
+  crdtype: 2
   selected: 0
   cmbtype: 0
   isdragging: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   CrTurn: 0
   playable: 0
   alreadyplayed: 0
+  def: {fileID: 0}
 --- !u!212 &5472685384137311406
 SpriteRenderer:
   m_ObjectHideFlags: 0

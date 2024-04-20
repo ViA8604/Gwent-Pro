@@ -39,42 +39,34 @@ namespace GwentPro
             ActualZone = null;
             material = GetComponent<Renderer>().material;
             ActualScene = gameObject.scene.name;
-            if(ActualScene == "GameTable")
+            if (ActualScene == "GameTable")
             {
-            GameObject EndB = GameObject.Find("EndTurnButton");
-            end = EndB.GetComponent<EndTurnButton>();
-            def = end.def;
-            string tagtofind;
-            if(gameObject.tag == "Crows")
-            {
-                tagtofind = "Deck1";
-            }
-            else
-            {
-                tagtofind = "Deck2";
-            }
-            GameObject CardDeck = GameObject.FindGameObjectWithTag(tagtofind);
-            yourP = CardDeck.GetComponent<Player>();
-            }
-            //ARREGLAR ESTO
-            if (cmbtype == combatype.Special)
-            {
-                if (ActualScene == "RedrawSuns")
+                GameObject EndB = GameObject.Find("EndTurnButton");
+                end = EndB.GetComponent<EndTurnButton>();
+                def = end.def;
+                string tagtofind;
+                if (gameObject.tag == "Crows")
                 {
-                    gameObject.tag = "Suns";
+                    tagtofind = "Deck1";
                 }
-                else gameObject.tag = "Crows";
+                else
+                {
+                    tagtofind = "Deck2";
+                }
+                GameObject CardDeck = GameObject.FindGameObjectWithTag(tagtofind);
+                yourP = CardDeck.GetComponent<Player>();
             }
+
         }
 
         void Update()
         {
-            if(ActualScene == "GameTable")
+            if (ActualScene == "GameTable")
             {
-            CrTurn = end.CrTurn;
-            playable = Playable(CrTurn , gameObject.tag);
+                CrTurn = end.CrTurn;
+                playable = Playable(CrTurn, gameObject.tag);
 
-            alreadyplayed = yourP.alreadyplayed;
+                alreadyplayed = yourP.alreadyplayed;
 
             }
             Camera camera = Camera.main;
@@ -113,18 +105,26 @@ namespace GwentPro
                     material.SetColor("_BorderColor", greencool);
                 }
             }
-            
+
         }
 
         void OnMouseEnter()
         {
-            if(CrTurn)
+            if(ActualScene == "GameTable")
             {
-                GameObject.Find("Zoom").GetComponent<Image>().sprite = def;
+            GameObject Zoom = GameObject.Find("Zoom");
+            Zoom.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+            if(cmbtype == combatype.Special)
+            {
+                Zoom.transform.localScale = new Vector3(0.4f, 0.6f, 0.2f);
             }
-            GameObject.Find("Zoom").GetComponent<Image>().sprite=gameObject.GetComponent<Image>().sprite;
-            
+            else
+            {
+            Zoom.transform.localScale = new Vector3(0.55f, 0.6f, 0.2f);
+            }
+            }
         }
+
 
 
         [System.Serializable]
@@ -167,7 +167,7 @@ namespace GwentPro
                 Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
                 // Aquí usamos la cámara activa
-                    activeCamera = SelectC.MainCamera1;/* inserta aquí tu código para obtener la cámara activa */;
+                activeCamera = SelectC.MainCamera1;/* inserta aquí tu código para obtener la cámara activa */;
 
                 // Convertimos la posición del ratón en la pantalla a la posición en el mundo
                 Vector3 curPosition = activeCamera.ScreenToWorldPoint(curScreenPoint) + offset;
@@ -212,7 +212,7 @@ namespace GwentPro
             ActualZone = null;
         }
 
-        static bool Playable (bool CrTurn, string cardtag)
+        static bool Playable(bool CrTurn, string cardtag)
         {
             if (CrTurn && cardtag == "Crows")
             {
@@ -222,7 +222,7 @@ namespace GwentPro
             {
                 return true;
             }
-            
+
         }
     }
 

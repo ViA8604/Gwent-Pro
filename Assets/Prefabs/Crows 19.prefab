@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4582655273841131817}
   - component: {fileID: -4666782207329683272}
   - component: {fileID: 3160339421326096865}
+  - component: {fileID: 3239685515366843434}
   m_Layer: 5
   m_Name: Crows 19
   m_TagString: Crows
@@ -119,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e14b707bd13f08df9959c6e94c77de62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32800b8c15254a19084a3c5ad31de661, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -142,12 +143,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b07e34a5e83cc7cb3c76be3569f17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardname: 
+  cardname: Polvo del Sahara
+  cardpoint: 0
   crdtype: 3
   selected: 0
   cmbtype: 3
   isdragging: 0
+  ActualScene: 
   ActualZone: {fileID: 0}
+  CrTurn: 0
+  playable: 0
+  alreadyplayed: 0
+  def: {fileID: 0}
 --- !u!61 &3160339421326096865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -193,3 +200,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.24, y: 10.24}
   m_EdgeRadius: 0
+--- !u!114 &3239685515366843434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111678455549296501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecf287201487a50d921eda747a916ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardname: 
+  pointAdded: 0

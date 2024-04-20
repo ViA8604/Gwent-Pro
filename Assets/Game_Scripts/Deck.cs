@@ -39,7 +39,7 @@ namespace GwentPro
             {
                 CardRedraw = "SunRedraw";
             }
-            needtoRenew = BeginRound(mazo1, inHand1 , CardRedraw); //esta talla devuelve siempre true
+            needtoRenew = BeginRound(mazo1, inHand1 , CardRedraw);
         }
 
         // Update is called once per frame
@@ -47,7 +47,7 @@ namespace GwentPro
         {
             if (needtoRenew == true)
             {
-                needtoRenew = RenewInicialCards(inHand1, toDestroy); //esta talla devuelve siempre false
+                needtoRenew = RenewInicialCards(inHand1, toDestroy); 
             }
             
         }
@@ -113,7 +113,6 @@ namespace GwentPro
 
         public static bool PeekCardInvoked(GameObject cardtocheck)
         {
-            //To check if a card is selected.
             CardClass cardcomp = cardtocheck.GetComponent<CardClass>(); //OHE
             if (cardcomp.selected == true)
             {

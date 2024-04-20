@@ -43,7 +43,7 @@ namespace GwentPro
         {
 
         }
-
+         // Método que realiza el cambio de cartas a partir del diccionario
         public void UpData()
         {
             UpdateCards(toDestroy11, inHand11, mazo11, indexcard);
