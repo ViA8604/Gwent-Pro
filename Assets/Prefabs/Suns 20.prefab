@@ -148,6 +148,8 @@ MonoBehaviour:
   crdtype: 3
   selected: 0
   cmbtype: 3
+  startposition: {x: 0, y: 0, z: 0}
+  draggedposition: {x: 0, y: 0, z: 0}
   isdragging: 0
   ActualScene: 
   ActualZone: {fileID: 0}
@@ -207,7 +209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887621614869332530}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ecf287201487a50d921eda747a916ac, type: 3}
   m_Name: 

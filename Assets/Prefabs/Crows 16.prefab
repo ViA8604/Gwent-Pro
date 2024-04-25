@@ -92,9 +92,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardname: 
   cardpoint: 1
-  crdtype: 0
+  crdtype: 2
   selected: 0
-  cmbtype: 0
+  cmbtype: 2
+  startposition: {x: 0, y: 0, z: 0}
+  draggedposition: {x: 0, y: 0, z: 0}
   isdragging: 0
   ActualScene: 
   ActualZone: {fileID: 0}

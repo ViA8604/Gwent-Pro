@@ -370,7 +370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazo1:
-  - {fileID: 3434908774072291644, guid: 5dab1d94ec06dbf0eb84765fe12ffacc, type: 3}
   - {fileID: 112729682771719571, guid: bcbaf44ad05bca50681ae84c17675947, type: 3}
   - {fileID: 177030247545898923, guid: d9eafcebc88e3aedd9d3668d6dc70fbc, type: 3}
   - {fileID: 3025028679773230806, guid: ac02c1c9ce7c3672cbd409e319657ce6, type: 3}

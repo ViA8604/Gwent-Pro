@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using GwentPro;
 using JetBrains.Annotations;
 using UnityEngine.UI;
+using TMPro;
 
 namespace GwentPro
 {
@@ -36,9 +37,11 @@ namespace GwentPro
                 sunls = SuLeader.GetComponent<CardClass>();
 
             }
-            
+
+
             GameObject endbutton = GameObject.Find("EndTurnButton");
             buttom = endbutton.GetComponent<EndTurnButton>();
+            
             if (gameObject.tag == "Deck2")
             {
                 GameObject sdeck = GameObject.FindGameObjectWithTag("Suns");
@@ -66,8 +69,8 @@ namespace GwentPro
 
                 }
             }
-        
-           /* indexcard = new int[10];
+            
+          /*  indexcard = new int[10];
             for (int i = 0; i < indexcard.Length; i++)
             {
                 indexcard[i] = i;
@@ -76,7 +79,7 @@ namespace GwentPro
                 yourhand1.Insert(i, card);
 
             }
-            */
+        */
         }
 
 
@@ -84,37 +87,18 @@ namespace GwentPro
 
         // Update is called once per frame
         void Update()
-        {
-
-            /*
+        {   
             RoundEnd = buttom.RoundEnd;
             if (RoundEnd)
             {
-                int adding = 15;
-                if (gameObject.tag == "Deck2")
+                StartCoroutine(NextRound());
+                buttom.waitRedr++;
+                if(buttom.waitRedr == 2)
                 {
-                    GameObject DeckC = GameObject.Find("CrowDeck");
-                    Player playerC = DeckC.GetComponent<Player>();
-                    for (int i = adding; i < adding + 2; i++)
-                    {
-                        Instantiate(mazo1[i], new Vector3(0, 0, 0), Quaternion.identity);
-                        yourhand1.Add(mazo1[i]);
-                    }
+                buttom.RoundEnd = false;
+                buttom.waitRedr = 0;
                 }
-                else
-                    {
-                        GameObject DeckS = GameObject.Find("SunDeck");
-                        Player playerS = DeckS.GetComponent<Player>();
-                        for (int i = adding; i < adding + 2; i++)
-                    {
-                        Instantiate(mazo1[i], new Vector3(0, 0, 0), Quaternion.identity);
-                        yourhand1.Add(mazo1[i]);
-                    }
-                    }
-
-                    
-                }
-            */
+            }
             for (int i = 0; i < yourhand1.Count; i++)
             {
                 CardClass card = yourhand1[i].GetComponent<CardClass>();
@@ -172,17 +156,40 @@ namespace GwentPro
         }
 
 
-        public static bool PeekCardDragging(GameObject cardtocheck)
+        IEnumerator NextRound()
         {
-            CardClass cardcomp = cardtocheck.GetComponent<CardClass>(); //OHE
-            if (cardcomp.isdragging == true)
+            // Espera hasta el siguiente clic del mouse
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+
+            TextMeshProUGUI endsign = GameObject.Find("round text(Clone)").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI winsign = GameObject.Find("win round(Clone)").GetComponent<TextMeshProUGUI>();
+            Destroy(endsign.gameObject);
+            Destroy(winsign.gameObject);
+
+            foreach (GameObject obj in yourhand1)
             {
-                return true;
+                Destroy(obj);
             }
-            else
+            yourhand1.Clear();
+
+            int deckpos = 14;
+            int roundc = buttom.roundc;
+            if(roundc == 3)
             {
-                return false;
+                deckpos = 17;
+            }    
+            int cardstoadd = 2;
+            if (gameObject.tag == "Deck2")
+            {
+                cardstoadd += 1;
+            }
+            for (int i = deckpos; i < deckpos + cardstoadd; i++)
+            {
+                GameObject card = Instantiate(mazo1[i], new Vector3(0, 0, 0), Quaternion.identity);
+                card.transform.SetParent(HandPanel, false);
+                yourhand1.Add(card);
             }
         }
+
     }
 }

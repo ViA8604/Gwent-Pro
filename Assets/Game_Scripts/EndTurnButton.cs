@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace GwentPro
 {
@@ -21,8 +22,9 @@ namespace GwentPro
         Player P1;
         Player P2;
         public int counter;
-        public TextMeshProUGUI RoundEd;                     //Fin de la ronda
+        public TextMeshProUGUI RoundEd;                     //Texto fin de la ronda
         TextMeshProUGUI roundEdInstance;
+        public int waitRedr = 0;
 
         Vector3 newPositionI;
         Quaternion newRotationI;
@@ -31,8 +33,10 @@ namespace GwentPro
         BoardPoints Crow;
         BoardPoints Sun;
         bool gotawinner;
+        public int roundc;
 
-        public TMPro.TextMeshProUGUI Winround;      //Decide el ganador
+        public TMPro.TextMeshProUGUI Winround;      //Texto del ganador
+        public TMPro.TextMeshProUGUI winroundinstance;
         void Start()
         {
             newPositionI = MainCamera1.transform.position;
@@ -53,7 +57,7 @@ namespace GwentPro
 
         public void Control()
         {
-            int roundc = 0;
+            roundc = 0;
             if (!P1.alreadyplayed && !P2.alreadyplayed)
             {
                 counter++;
@@ -63,11 +67,16 @@ namespace GwentPro
                 RoundEnd = true;
                 GameObject canvas = GameObject.Find("Canvas");
                 roundEdInstance = Instantiate(RoundEd, canvas.transform, false);
-                Winround = Instantiate(Winround, canvas.transform);
-                roundc ++;
+                winroundinstance = Instantiate(Winround, canvas.transform);
+                roundc++;
+                counter = 0;
 
             }
-
+            if(roundc == 3)
+            {
+                SceneManager.LoadScene("MenuScene");
+                roundEdInstance.text = "Fin de partida";
+            }
 
             P1.alreadyplayed = false;
             P2.alreadyplayed = false;
@@ -81,27 +90,33 @@ namespace GwentPro
                 // Cambia la rotación de la cámara a la nueva rotación
                 MainCamera1.transform.rotation = newRotation;
                 rectTransform.rotation = Quaternion.Euler(0, 0, 180);
+
+                //Ajusta el zoom de carta según el turno
                 GameObject zoom = GameObject.Find("Zoom");
                 zoom.transform.position = ObjectP.transform.position;
                 zoom.transform.localScale = new Vector3(0.4f, 0.6f, 0.2f);
                 zoom.transform.rotation = Quaternion.Euler(0, 0, 180);
 
-                // GameObject PointC = GameObject.Find("PointTextC");
-                //PointC.transform.localPosition = new Vector3(-30.8f, 4.5f , -1.8f);
-                // PointC.transform.rotation = Quaternion.Euler(0,0,180);
+                //Ajusta la posición de los puntos acorde al turno
+                GameObject PointC = GameObject.Find("PointTextC");
+                PointC.transform.localPosition = new Vector3(-30.8f, 4.5f, -1.8f);
+                PointC.transform.rotation = Quaternion.Euler(0, 0, 180);
+                GameObject PointS = GameObject.Find("PointTextS");
+                PointS.transform.rotation = Quaternion.Euler(0, 0, 180);
+                PointS.transform.localPosition = new Vector3(-106.5f, 24.6f, 0f);
 
                 if (RoundEnd)
                 {
-                    //RoundEd.transform.rotation = Quaternion.Euler(0, 0, 0);
-                    if (Crow.sum > Sun.sum)
+                    roundEdInstance.transform.rotation = Quaternion.Euler(180, 180, 0);
+                    if (Crow.sum >= Sun.sum)
                     {
-                        Winround.text = "Cuervos ganan";
+                        winroundinstance.text = "Cuervos ganan";
                     }
                     else
                     {
-                        Winround.text = "Cuervos pierden";
+                        winroundinstance.text = "Cuervos pierden";
                     }
-                    //Winround.transform.localScale = new Vector3(-13.2f, -4.7f, -1.8f);
+                    winroundinstance.transform.rotation = Quaternion.Euler(180, 180, 0);
                 }
                 CrTurn = true;
             }
@@ -114,24 +129,29 @@ namespace GwentPro
                 GameObject zoom = GameObject.Find("Zoom");
                 zoom.transform.position = ZoomPositionI;
                 zoom.transform.rotation = Quaternion.Euler(0, 0, 0);
-                /*GameObject PointC = GameObject.Find("PointTextC");
-                PointC.transform.localPosition = new Vector3(18.4f, -10.6f , -1.8f);
-                PointC.transform.rotation = Quaternion.Euler(0,0,0);
-                */
+
+                GameObject PointC = GameObject.Find("PointTextC");
+                PointC.transform.localPosition = new Vector3(18.4f, -10.6f, -1.8f);
+                PointC.transform.rotation = Quaternion.Euler(0, 0, 0);
+                GameObject PointS = GameObject.Find("PointTextS");
+                PointS.transform.rotation = Quaternion.Euler(0, 0, 0);
+                PointS.transform.localPosition = new Vector3(92.9f, -23.9f, 0f);
+
                 if (RoundEnd)
                 {
                     if (RoundEnd)
                     {
-                       // RoundEd.transform.rotation = Quaternion.Euler(180, 180, 0);
-                        if (Crow.sum > Sun.sum)
+                        roundEdInstance.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                        if (Crow.sum >= Sun.sum)
                         {
-                            Winround.text = "Cuervos ganan";
+                            winroundinstance.text = "Cuervos ganan";
                         }
                         else
                         {
-                            Winround.text = "Cuervos pierden";
+                            winroundinstance.text = "Cuervos pierden";
                         }
-                        //Winround.transform.localScale = new Vector3(42.6f, -122f, -0.7f);
+                        winroundinstance.transform.rotation = Quaternion.Euler(0, 0, 0);
 
                     }
                 }
