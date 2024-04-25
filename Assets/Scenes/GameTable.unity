@@ -797,7 +797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.772, y: 0.1643067}
-  m_AnchoredPosition: {x: -5.17, y: -2.0099998}
+  m_AnchoredPosition: {x: -5.17, y: -1.98}
   m_SizeDelta: {x: 14.097427, y: 1.6775208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488265421
@@ -2062,11 +2062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3647393511915677407, guid: 76aee5489e5cba9c28fccbd58c35b3c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 533.6
+      value: 533.49
       objectReference: {fileID: 0}
     - target: {fileID: 3647393511915677407, guid: 76aee5489e5cba9c28fccbd58c35b3c9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.5
+      value: -10.97
       objectReference: {fileID: 0}
     - target: {fileID: 3647393511915677407, guid: 76aee5489e5cba9c28fccbd58c35b3c9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2205,8 +2205,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alreadyplayed: 0
-  mazo1: []
+  mazo1:
+  - {fileID: 112729682771719571, guid: bcbaf44ad05bca50681ae84c17675947, type: 3}
+  - {fileID: 177030247545898923, guid: d9eafcebc88e3aedd9d3668d6dc70fbc, type: 3}
+  - {fileID: 3025028679773230806, guid: ac02c1c9ce7c3672cbd409e319657ce6, type: 3}
+  - {fileID: 8987508919115044001, guid: 4e80a94426e36ddfc8fdfbad815a16c8, type: 3}
+  - {fileID: 2029788949715785665, guid: 25026bdc73b7b895b8a75f3419d30971, type: 3}
+  - {fileID: 1765022320045893882, guid: 73f2f852e0abbae1582dfd55f20e9bff, type: 3}
+  - {fileID: 9197690575631667163, guid: 8fdd3aaf920299c70910f3d37330a671, type: 3}
+  - {fileID: 7446194492358339038, guid: fc30240437003a6f8ab7a237e65d876d, type: 3}
+  - {fileID: 719249462423735890, guid: 3a1da711d0bb247fe84281e06201bd22, type: 3}
+  - {fileID: 6183834867305386961, guid: 2388d72302936865393105937055a7f8, type: 3}
   indexcard: 
+  CrLeader: {fileID: 3434908774072291644, guid: 5dab1d94ec06dbf0eb84765fe12ffacc, type: 3}
+  SuLeader: {fileID: 5715770388253089514, guid: d98669bb22d6771999bee5a0388ca736, type: 3}
   yourhand1: []
   HandPanel: {fileID: 488265420}
   MainCamera1: {fileID: 1271794303}
@@ -2247,8 +2259,8 @@ MonoBehaviour:
   ButtonContainer: {fileID: 1732848224}
   def: {fileID: 21300000, guid: b1477712d402fc469bb0bfbf620d9048, type: 3}
   counter: 0
-  RoundEd: {fileID: 885017230266492998, guid: e9b44cdc1a7e8ed34b4914d9810f043d, type: 3}
-  Winround: {fileID: 8834500575050894462, guid: fcc382ce142efcd6f94d309d3ef75fd7, type: 3}
+  RoundEd: {fileID: 155144551933152591, guid: 3112ab5b70420b78f9778cb78174d2f2, type: 3}
+  Winround: {fileID: 643670930909285, guid: 6799201340620e3a29617ab197ac39ff, type: 3}
 --- !u!4 &1321413951
 Transform:
   m_ObjectHideFlags: 0
@@ -2355,8 +2367,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alreadyplayed: 0
-  mazo1: []
+  mazo1:
+  - {fileID: 8482684619618104651, guid: 7b0db6d299107bf639e8e316b229f07b, type: 3}
+  - {fileID: 844453329123320930, guid: c83c17d993357911f80f06a23685b831, type: 3}
+  - {fileID: 5578999748811908338, guid: 3bb6d8af8cc3d53869122ae86d2f288f, type: 3}
+  - {fileID: 3874470323828125648, guid: fd47ab43ee33f7346b2305cd420a94b4, type: 3}
+  - {fileID: 7368335054223527929, guid: ea87fd03d41278549b292996c1c3a2b5, type: 3}
+  - {fileID: 2572948108099535820, guid: e910f8bc1e8be6fc391d31853ebc6644, type: 3}
+  - {fileID: 3550000310816139841, guid: 68f8ab7534211861f85bb6c9c2e3dd4e, type: 3}
+  - {fileID: 1371144902190383330, guid: 287cdd945632583ed9c7ed284320f45f, type: 3}
+  - {fileID: 5449733741882618059, guid: 6d5d33d3a4a5f84568fb38d8ab3e50e7, type: 3}
+  - {fileID: 9127665140169559464, guid: 19202a5c97e26a2d1ab89ac805d083d4, type: 3}
   indexcard: 
+  CrLeader: {fileID: 0}
+  SuLeader: {fileID: 0}
   yourhand1: []
   HandPanel: {fileID: 615026262}
   MainCamera1: {fileID: 0}
@@ -3012,11 +3036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547716786368756790, guid: 277247a2ffaf6baa4a5941d4ec501aae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 543.5
+      value: 543.65
       objectReference: {fileID: 0}
     - target: {fileID: 2547716786368756790, guid: 277247a2ffaf6baa4a5941d4ec501aae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.1
+      value: -10.79
       objectReference: {fileID: 0}
     - target: {fileID: 2547716786368756790, guid: 277247a2ffaf6baa4a5941d4ec501aae, type: 3}
       propertyPath: m_LocalRotation.w

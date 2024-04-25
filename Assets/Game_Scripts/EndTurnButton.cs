@@ -21,7 +21,7 @@ namespace GwentPro
         Player P1;
         Player P2;
         public int counter;
-        public TextMeshProUGUI RoundEd;
+        public TextMeshProUGUI RoundEd;                     //Fin de la ronda
         TextMeshProUGUI roundEdInstance;
 
         Vector3 newPositionI;
@@ -32,7 +32,7 @@ namespace GwentPro
         BoardPoints Sun;
         bool gotawinner;
 
-        public TMPro.TextMeshProUGUI Winround;
+        public TMPro.TextMeshProUGUI Winround;      //Decide el ganador
         void Start()
         {
             newPositionI = MainCamera1.transform.position;
@@ -63,6 +63,7 @@ namespace GwentPro
                 RoundEnd = true;
                 GameObject canvas = GameObject.Find("Canvas");
                 roundEdInstance = Instantiate(RoundEd, canvas.transform, false);
+                Winround = Instantiate(Winround, canvas.transform);
                 roundc ++;
 
             }
@@ -100,7 +101,7 @@ namespace GwentPro
                     {
                         Winround.text = "Cuervos pierden";
                     }
-                    Winround.transform.localScale = new Vector3(-13.2f, -4.7f, -1.8f);
+                    //Winround.transform.localScale = new Vector3(-13.2f, -4.7f, -1.8f);
                 }
                 CrTurn = true;
             }
@@ -130,7 +131,7 @@ namespace GwentPro
                         {
                             Winround.text = "Cuervos pierden";
                         }
-                        Winround.transform.localScale = new Vector3(42.6f, -122f, -0.7f);
+                        //Winround.transform.localScale = new Vector3(42.6f, -122f, -0.7f);
 
                     }
                 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using GwentPro;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 namespace GwentPro
 {
@@ -12,6 +13,10 @@ namespace GwentPro
         public bool alreadyplayed;
         public List<GameObject> mazo1;
         public int[] indexcard;
+        public GameObject CrLeader;
+        public GameObject SuLeader;
+        CardClass crowl;
+        CardClass sunls;
         public List<GameObject> yourhand1;
         public Transform HandPanel;
         private Vector3 originalPosition; // Para guardar la posición original
@@ -22,6 +27,16 @@ namespace GwentPro
         // Start is called before the first frame update
         void Start()
         {
+            if (gameObject.tag == "Deck1")
+            {
+                CrLeader = Instantiate(CrLeader, new Vector3(952.6099f, 534.9073f, 0), Quaternion.identity);
+                crowl = CrLeader.GetComponent<CardClass>();
+                SuLeader = Instantiate(SuLeader, new Vector3(952.53f, 540.28f, 0), Quaternion.identity);
+                SuLeader.transform.rotation = Quaternion.Euler(180, 180, 0);
+                sunls = SuLeader.GetComponent<CardClass>();
+
+            }
+            
             GameObject endbutton = GameObject.Find("EndTurnButton");
             buttom = endbutton.GetComponent<EndTurnButton>();
             if (gameObject.tag == "Deck2")
@@ -51,18 +66,18 @@ namespace GwentPro
 
                 }
             }
+        
+           /* indexcard = new int[10];
+            for (int i = 0; i < indexcard.Length; i++)
+            {
+                indexcard[i] = i;
+                GameObject card = Instantiate(mazo1[indexcard[i]], new Vector3(0, 0, 0), Quaternion.identity);
+                card.transform.SetParent(HandPanel, false);
+                yourhand1.Insert(i, card);
+
+            }
+            */
         }
-
-        /*indexcard = new int[10];
-          for (int i = 0; i < indexcard.Length; i++)
-          {
-              indexcard[i] = i;
-              GameObject card = Instantiate(mazo1[indexcard[i]], new Vector3(0, 0, 0), Quaternion.identity);
-              card.transform.SetParent(HandPanel, false);
-              yourhand1.Insert(i, card);
-
-          }
-          */
 
 
 
@@ -70,6 +85,8 @@ namespace GwentPro
         // Update is called once per frame
         void Update()
         {
+
+            /*
             RoundEnd = buttom.RoundEnd;
             if (RoundEnd)
             {
@@ -97,54 +114,75 @@ namespace GwentPro
 
                     
                 }
-                
-                for (int i = 0; i < yourhand1.Count; i++)
-                {
-                    CardClass card = yourhand1[i].GetComponent<CardClass>(); // Consigues el componente
-                    CardClass.combatype fightype = card.cmbtype;
-                    GameObject actualzone = card.ActualZone;  // Guardas la zona actual por la que va el objeto
-                    if (card.isdragging)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        if (actualzone != null)
-                        {
-                            CombatZone panel = actualzone.GetComponent<CombatZone>();   // Consigues el panel de por donde va el objeto
-                            if (fightype == panel.cmbtype && card.tag == panel.tag)
-                            {
-                                yourhand1[i].transform.SetParent(actualzone.transform, false);
-                                alreadyplayed = true;
-                            }
-                            else
-                            {
-                                if (card.transform.parent.tag.Contains("Deck"))
-                                {
-                                    card.transform.SetParent(HandPanel, false);
-                                }
-                            }
-                        }
-                        else
-                        {
-                          
-                        }
-                    }
-                }
-            }
-
-
-            public static bool PeekCardDragging(GameObject cardtocheck)
+            */
+            for (int i = 0; i < yourhand1.Count; i++)
             {
-                CardClass cardcomp = cardtocheck.GetComponent<CardClass>(); //OHE
-                if (cardcomp.isdragging == true)
+                CardClass card = yourhand1[i].GetComponent<CardClass>();
+                CardClass.combatype fightype = card.cmbtype;
+                GameObject actualzone = card.ActualZone;  // Guardas la zona actual por la que va el objeto
+                if (card.isdragging)
                 {
-                    return true;
+                    continue;
                 }
                 else
                 {
-                    return false;
+                    if (actualzone != null)
+                    {
+                        CombatZone panel = actualzone.GetComponent<CombatZone>();   // Consigues el panel de por donde va el objeto
+                        if (fightype == panel.cmbtype && card.tag == panel.tag)
+                        {
+                            yourhand1[i].transform.SetParent(actualzone.transform, false);
+                            card.ActualZone = actualzone;
+                            alreadyplayed = true;
+                        }
+                        else
+                        {
+                            if (card.startposition != card.draggedposition)
+                            {
+                                HorizontalLayoutGroup layoutGroup = HandPanel.GetComponent<HorizontalLayoutGroup>();
+                                layoutGroup.enabled = false;
+
+                                layoutGroup.enabled = true;
+                                card.draggedposition = card.startposition;
+                                Vector3 pos = card.transform.position;
+                                pos.z = 0;
+                                card.transform.position = pos;
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (card.startposition != card.draggedposition)
+                        {
+                            HorizontalLayoutGroup layoutGroup = HandPanel.GetComponent<HorizontalLayoutGroup>();
+                            layoutGroup.enabled = false;
+
+                            layoutGroup.enabled = true;
+                            card.draggedposition = card.startposition;
+                            Vector3 pos = card.transform.position;
+                            pos.z = 0;
+                            card.transform.position = pos;
+
+                        }
+                    }
                 }
+
+            }
+        }
+
+
+        public static bool PeekCardDragging(GameObject cardtocheck)
+        {
+            CardClass cardcomp = cardtocheck.GetComponent<CardClass>(); //OHE
+            if (cardcomp.isdragging == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
+}

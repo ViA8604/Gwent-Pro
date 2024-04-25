@@ -16,6 +16,8 @@ namespace GwentPro
         public cardtype crdtype;
         public bool selected;
         public combatype cmbtype;
+        public Vector3 startposition;
+        public Vector3 draggedposition;
 
         private Material material;
         private Vector3 screenPoint;
@@ -41,6 +43,8 @@ namespace GwentPro
             ActualScene = gameObject.scene.name;
             if (ActualScene == "GameTable")
             {
+                startposition = gameObject.transform.position;
+                draggedposition = startposition;
                 GameObject EndB = GameObject.Find("EndTurnButton");
                 end = EndB.GetComponent<EndTurnButton>();
                 def = end.def;
@@ -55,6 +59,10 @@ namespace GwentPro
                 }
                 GameObject CardDeck = GameObject.FindGameObjectWithTag(tagtofind);
                 yourP = CardDeck.GetComponent<Player>();
+            }
+            if(gameObject.name == "Aleyra Valiente" || gameObject.name == "Fernás" || gameObject.name == "Profesor R" || gameObject.name == "Idris Anhia")
+            {
+                cmbtype = combatype.Range;
             }
 
         }
@@ -152,9 +160,10 @@ namespace GwentPro
         }
         void OnMouseDrag()
         {
-            if (ActualScene == "RedrawScene" || ActualScene == "RedrawSuns" || !selected || !playable || alreadyplayed)
+            if (ActualScene == "RedrawScene" || ActualScene == "RedrawSuns" || !selected || !playable || alreadyplayed || crdtype == cardtype.Leader)
             {
                 isdragging = false;
+                
                 return;
             }
             else
@@ -174,6 +183,7 @@ namespace GwentPro
 
                 // Actualizamos la posición del objeto
                 transform.position = curPosition;
+                draggedposition = transform.position;
             }
         }
 

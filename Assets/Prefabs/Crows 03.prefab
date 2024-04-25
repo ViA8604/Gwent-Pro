@@ -90,11 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b07e34a5e83cc7cb3c76be3569f17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardname: 
+  cardname: Idris Anhia
   cardpoint: 4
   crdtype: 2
   selected: 0
-  cmbtype: 0
+  cmbtype: 1
   isdragging: 0
   ActualScene: 
   ActualZone: {fileID: 0}
