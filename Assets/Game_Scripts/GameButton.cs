@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameButton : MonoBehaviour
 {
-    public AudioBehaviour menumusic;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,6 @@ public class GameButton : MonoBehaviour
     public void GoToGameSn ()
     {
         SceneManager.LoadScene("RedrawScene");
-        DontDestroyOnLoad(menumusic);
     }
 
     public void ExitGame ()

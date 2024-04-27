@@ -33,7 +33,9 @@ namespace GwentPro
         BoardPoints Crow;
         BoardPoints Sun;
         bool gotawinner;
-        public int roundc;
+        public int roundc = 0;
+        public int crowstreak;
+        public int sunstreak;
 
         public TMPro.TextMeshProUGUI Winround;      //Texto del ganador
         public TMPro.TextMeshProUGUI winroundinstance;
@@ -57,7 +59,6 @@ namespace GwentPro
 
         public void Control()
         {
-            roundc = 0;
             if (!P1.alreadyplayed && !P2.alreadyplayed)
             {
                 counter++;
@@ -65,6 +66,14 @@ namespace GwentPro
             if (counter == 2)
             {
                 RoundEnd = true;
+                if (Crow.sum >= Sun.sum)
+                {
+                    crowstreak += 1;
+                }
+                else
+                {
+                    sunstreak += 1;
+                }
                 GameObject canvas = GameObject.Find("Canvas");
                 roundEdInstance = Instantiate(RoundEd, canvas.transform, false);
                 winroundinstance = Instantiate(Winround, canvas.transform);
@@ -72,10 +81,13 @@ namespace GwentPro
                 counter = 0;
 
             }
-            if(roundc == 3)
+            if (roundc == 3)
             {
-                SceneManager.LoadScene("MenuScene");
-                roundEdInstance.text = "Fin de partida";
+                GameObject EndGameC = GameObject.Find("EndGameC");
+                Destroy(GameObject.Find("ChButtonC"));
+                Destroy(GameObject.Find("ChooseButtonS"));
+                SceneManager.LoadScene("EndGameScene");
+                DontDestroyOnLoad(EndGameC);
             }
 
             P1.alreadyplayed = false;

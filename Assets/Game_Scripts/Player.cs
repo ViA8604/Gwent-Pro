@@ -25,6 +25,7 @@ namespace GwentPro
         public Camera MainCamera1;
         bool RoundEnd;
         EndTurnButton buttom;
+        int roundc;
         // Start is called before the first frame update
         void Start()
         {
@@ -70,7 +71,7 @@ namespace GwentPro
                 }
             }
             
-          /*  indexcard = new int[10];
+         /*   indexcard = new int[10];
             for (int i = 0; i < indexcard.Length; i++)
             {
                 indexcard[i] = i;
@@ -88,6 +89,7 @@ namespace GwentPro
         // Update is called once per frame
         void Update()
         {   
+            roundc = buttom.roundc;
             RoundEnd = buttom.RoundEnd;
             if (RoundEnd)
             {
@@ -173,8 +175,8 @@ namespace GwentPro
             yourhand1.Clear();
 
             int deckpos = 14;
-            int roundc = buttom.roundc;
-            if(roundc == 3)
+            
+            if(roundc == 2)
             {
                 deckpos = 17;
             }    

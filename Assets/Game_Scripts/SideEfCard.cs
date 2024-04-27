@@ -12,10 +12,12 @@ public class SideEfCard : MonoBehaviour
     GameObject Board;
     CardClass card;
     public bool pointAdded = false;
+    public GameObject weatherpanel;
 
     // Start is called before the first frame update
     void Start()
     {
+        weatherpanel = GameObject.Find("WeatherZone");
         card = gameObject.GetComponent<CardClass>();
         cardname = card.cardname;
 
@@ -43,7 +45,8 @@ public class SideEfCard : MonoBehaviour
             {
                 switch (cardname)
                 {
-                    case "Frente Frío":
+                    case "Frente Frío" :
+                    case "Mitus Rhe Saurus":
                         for (int i = 0; i < Board.transform.childCount; i++)
                         {
                             GameObject panel = Board.transform.GetChild(i).gameObject;
@@ -113,11 +116,10 @@ public class SideEfCard : MonoBehaviour
                         break;
 
                     case "Cielos Despejados":
-                        GameObject panelparent = gameObject.transform.parent.gameObject;
                         
-                        for (int j = 0; j < gameObject.transform.parent.childCount; j++)
+                        for (int j = 0; j < weatherpanel.transform.childCount; j++)
                         {
-                            GameObject card = panelparent.transform.GetChild(j).gameObject;
+                            GameObject card = weatherpanel.transform.GetChild(j).gameObject;
                             if (card.tag == "Crows")
                             {
                                 GameObject Grave = GameObject.Find("CemeteryC");

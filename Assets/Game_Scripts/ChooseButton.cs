@@ -108,12 +108,14 @@ namespace GwentPro
                 FillIndex(indexcard, toDestroy11);
                 SceneManager.LoadScene("RedrawSuns");
                 DontDestroyOnLoad(gameObject);
+                
             }
             else
             {
                 FillIndex(indexcard, toDestroy11);
                 SceneManager.LoadScene("GameTable");
                 DontDestroyOnLoad(gameObject);
+                
             }
         }
 

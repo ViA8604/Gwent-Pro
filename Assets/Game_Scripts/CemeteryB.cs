@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 namespace GwentPro
 {
     public class CemeteryB : MonoBehaviour
@@ -35,6 +36,26 @@ namespace GwentPro
                      }
                 }
             }
+            }
+            if(gameObject.transform.childCount != 0)
+            {
+                HorizontalLayoutGroup horizontal = gameObject.GetComponent<HorizontalLayoutGroup>();
+                for(int i = 0; i < gameObject.transform.childCount; i++)
+                {
+                    GameObject card = gameObject.transform.GetChild(i).gameObject;
+                    CardClass cardClass = card.GetComponent<CardClass>();
+                    if(cardClass.crdtype == CardClass.cardtype.Special)
+                    {
+                        
+                        horizontal.childControlHeight = enabled;
+                        horizontal.childScaleWidth = enabled;
+                    }
+                    else
+                    {
+                        horizontal.childControlHeight = !enabled;
+                        horizontal.childScaleWidth = !enabled;
+                    }
+                }
             }
         }
     }
