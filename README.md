@@ -1,6 +1,6 @@
 # Gwent-Pro 🃏
 
-This project is a card game developed using Unity. The primary goal of this project was to gain practical experience with Unity's game development workflow. 
+This project is a card game developed using Unity. The primary goal of this project was to gain practical experience with Unity's game development workflow during the first semester of my first year in Computer Science 🤠.
 
 **Features:**
 
